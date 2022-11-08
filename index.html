@@ -9,88 +9,107 @@
 </head>
 <body>
 
-    <label>Nome e cognome</label> <input type="text" id="name">
-
-    <label>Km da percorrere</label> <input type="text" id="km">
-
-    <label>Eta'</label>
-
-    <select name="age" id="age">
-        <option value="maggiorenne">Maggiorenne</option>
-        <option value="minorenne">Minorenne</option>
-        <option value="over">Over 65</option>
-    </select>
-
-    <button id="genera">Genera</button> 
-
-    <button id="annulla">Annulla</button>
-
-
-    <div id="biglietto">
+    <div class="contenuto">
 
         <h2>
-            IL TUO BIGLIETTO
+            CALCOLA IL PREZZO DEL BIGLIETTO
         </h2>
 
-        <h3>
-            DETTAGLI PASSEGGERI
-        </h3>
+        <div id="scelta-biglietto">
+            
+            <div class="input">
+                <label>Nome e cognome</label> 
+                <input type="text" id="name">
+            </div>
+    
+            <div class="input">
+                <label>Km da percorrere</label> 
+                <input type="text" id="km">
+            </div>
+    
+            <div class="input">
+                <label>Eta'</label>
+    
+                <select name="age" id="age">
+                    <option value="maggiorenne">Maggiorenne</option>
+                    <option value="minorenne">Minorenne</option>
+                    <option value="over">Over 65</option>
+                </select>
+            </div>
+    
+            <div class="buttons">
+                <button id="genera">Genera</button> 
+    
+                <button id="annulla">Annulla</button>
+            </div>
+        </div>
 
-        <div class="biglietto-info">
+        <div id="biglietto">
 
-            <ul class="lista-info">
-                <li>
-                    <h3>
-                        NOME PASSEGGERO
-                    </h3>
-                </li>
+            <h2>
+                IL TUO BIGLIETTO
+            </h2>
 
-                <li>
-                    <h3>
-                        Offerta
-                    </h3>
-                </li>
-
-                <li>
-                    <h3>
-                        Carrozza
-                    </h3>
-                </li>
-
-                <li>
-                    <h3>
-                        Codice CP
-                    </h3>
-                </li>
-
-                <li>
-                    <h3>
-                        Costo biglietto
-                    </h3>
-                </li>
-            </ul>
-
-            <ul class="lista-info">
-                <li id="nome"></li>
-
-                <li>
-                    Biglietto Standard
-                </li>
-
-                <li>
-                    5
-                </li>
-
-                <li>
-                    92911
-                </li>
-
-                <li id="prezzo"></li>
-            </ul>
-
-            <!-- <div id="nome"></div>
-
-            <div id="chilometri"></div> -->
+            <div class="contenuto-biglietto">
+                <h3>
+                    DETTAGLI PASSEGGERI
+                </h3>
+    
+                <div class="biglietto-info">
+    
+                    <ul class="lista-info">
+                        <li>
+                            <h3>
+                                NOME PASSEGGERO
+                            </h3>
+                        </li>
+    
+                        <li>
+                            <h3>
+                                Offerta
+                            </h3>
+                        </li>
+    
+                        <li>
+                            <h3>
+                                Carrozza
+                            </h3>
+                        </li>
+    
+                        <li>
+                            <h3>
+                                Codice CP
+                            </h3>
+                        </li>
+    
+                        <li>
+                            <h3>
+                                Costo biglietto
+                            </h3>
+                        </li>
+                    </ul>
+    
+                    <ul class="lista-info">
+                        <li id="nome"></li>
+    
+                        <li>
+                            Biglietto Standard
+                        </li>
+    
+                        <li>
+                            
+                        </li>
+    
+                        <li>
+                            
+                        </li>
+    
+                        <li id="prezzo"></li>
+                    </ul>
+    
+                    <!-- <div id="nome"></div> -->
+                </div>
+            </div>
         </div>
     </div>
 
