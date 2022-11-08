@@ -62,3 +62,15 @@ addButton.addEventListener("click",
     }
 
 );
+
+cancelButton.addEventListener("click",
+
+    function() {
+
+        nome.innerHTML = null;
+
+        chilometri.innerHTML = null;
+        
+    }
+
+);
