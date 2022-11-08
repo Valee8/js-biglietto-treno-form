@@ -1,6 +1,4 @@
-const nome = document.getElementById("nome");
-
-const chilometri = document.getElementById("chilometri");
+const nome = document.getElementById("nome-passeggero");
 
 const inputName = document.getElementById("name");
 
@@ -14,9 +12,7 @@ const select = document.getElementById("age");
 
 const biglietto = document.getElementById("biglietto");
 
-let nomeInserito;
-
-let kmInseriti;
+let prezzoBiglietto = document.getElementById("prezzo");
 
 // Variabile che contiene il prezzo al chilometro
 const prezzoAlKm = 0.21;
@@ -27,22 +23,17 @@ const scontoMinorenni = 0.2;
 // Variabile che contiene lo sconto per gli over 65
 const scontoOver = 0.4;
 
-// Variabile che contiene il prezzo del biglietto
-let prezzoBiglietto;
-
 addButton.addEventListener("click", 
 
     function() {
 
-        biglietto.className = "active";
+        biglietto.classList = "show";
+    
+        const nomeInserito = inputName.value;
 
-        nomeInserito = inputName.value;
-
-        kmInseriti = inputKm.value;
+        const kmInseriti = inputKm.value;
 
         nome.innerHTML = nomeInserito;
-
-        chilometri.innerHTML = kmInseriti;
 
         prezzoBiglietto = prezzoAlKm * kmInseriti;
 
@@ -61,7 +52,7 @@ addButton.addEventListener("click",
             console.log("prezzo biglietto non scontato: ", prezzoBiglietto);
 
         }
-
+        
     }
 
 );
@@ -70,7 +61,7 @@ cancelButton.addEventListener("click",
 
     function() {
 
-        biglietto.className = null;
+        biglietto.className = "hidden";
         
     }
 
