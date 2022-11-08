@@ -6,3 +6,13 @@
 #biglietto.active {
     display: block;
 }
+
+.lista-info {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+}
+
+.lista-info > li {
+    width: 20%;
+}
