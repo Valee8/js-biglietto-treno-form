@@ -12,6 +12,8 @@ const cancelButton = document.getElementById("annulla");
 
 const select = document.getElementById("age");
 
+const biglietto = document.getElementById("biglietto");
+
 let nomeInserito;
 
 let kmInseriti;
@@ -32,6 +34,8 @@ addButton.addEventListener("click",
 
     function() {
 
+        biglietto.className = "active";
+
         nomeInserito = inputName.value;
 
         kmInseriti = inputKm.value;
@@ -44,7 +48,6 @@ addButton.addEventListener("click",
 
         if (select.value === "minorenne") {
             prezzoBiglietto -= prezzoBiglietto * scontoMinorenni;
-
             console.log("prezzo biglietto minorenni: ", prezzoBiglietto);
 
         } 
@@ -67,9 +70,7 @@ cancelButton.addEventListener("click",
 
     function() {
 
-        nome.innerHTML = null;
-
-        chilometri.innerHTML = null;
+        biglietto.className = null;
         
     }
 
