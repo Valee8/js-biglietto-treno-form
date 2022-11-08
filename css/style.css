@@ -1,3 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #B91550;
+}
+
+h2 {
+    padding-bottom: 10px;
+}
+
+.contenuto {
+    max-width: 900px;
+    margin: 50px auto 0 auto;
+    padding: 40px 60px;
+}
+
+.contenuto label {
+    color: #CE5C85;
+    font-weight: bold;
+    display: block;
+    padding-bottom: 10px;
+    font-size: 14px;
+}
+
+.contenuto input, .contenuto select {
+    border: 1px solid #BA1751;
+    border-radius: 5px;
+    width: 65%;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 2px 5px;
+}
+
+.contenuto button {
+    background-color: #cccccc;
+    border: 1px solid #848484;
+    border-radius: 5px;
+    color: #BB255B;
+    padding: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0 8px;
+}
+
+#scelta-biglietto {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+#scelta-biglietto .input {
+    width: 25%;
+}
+
+#scelta-biglietto .buttons {
+    width: 50%;
+    padding-top: 30px;
+}
+
+#biglietto .contenuto-biglietto, #scelta-biglietto {
+    background-color: #fff;
+    padding: 15px;
+}
+
+#scelta-biglietto {
+    box-shadow: 0 3px 3px rgba(0, 0, 0, .6);
+    border-radius: 10px;
+}
+
+.contenuto h2 {
+    text-align: center;
+    color: #fff;
+}
+
 #biglietto {
     display: none; 
     padding-top: 30px;
@@ -20,4 +101,25 @@
 
 .lista-info > li:first-child {
     width: 30%;
+}
+
+.lista-info > li {
+    width: calc(70% / 4);
+    padding: 15px 10px;
+}
+
+.lista-info:first-child > li:not(:first-child) {
+    border-top: 1px solid #c4c4c4;
+}
+
+.lista-info:last-child > li:not(:first-child) {
+    border-bottom: 1px solid #c4c4c4;
+}
+
+.lista-info > li:first-child {
+    background-color: #808080;
+}
+
+#nome-passeggero {
+    font-weight: bold;
 }
