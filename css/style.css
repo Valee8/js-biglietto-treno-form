@@ -1,0 +1,8 @@
+#biglietto {
+    display: none; 
+    background-color: red;
+}
+
+#biglietto.active {
+    display: block;
+}
