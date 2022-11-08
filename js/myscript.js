@@ -10,9 +10,13 @@ const cancelButton = document.getElementById("annulla");
 
 const select = document.getElementById("age");
 
+const carrozza = document.getElementById("numero-carrozza");
+
 const biglietto = document.getElementById("biglietto");
 
 let prezzoBiglietto = document.getElementById("prezzo");
+
+const codiceCp = document.getElementById("codice-cp");
 
 // Variabile che contiene il prezzo al chilometro
 const prezzoAlKm = 0.21;
@@ -23,10 +27,13 @@ const scontoMinorenni = 0.2;
 // Variabile che contiene lo sconto per gli over 65
 const scontoOver = 0.4;
 
+carrozza.innerHTML = Math.floor(Math.random() * 10) + 1;
+
+codiceCp.innerHTML = Math.floor(Math.random() * 99999) + 1;
+
 addButton.addEventListener("click", 
 
     function() {
-
         biglietto.classList = "show";
     
         const nomeInserito = inputName.value;
@@ -35,25 +42,27 @@ addButton.addEventListener("click",
 
         nome.innerHTML = nomeInserito;
 
-        prezzoBiglietto = prezzoAlKm * kmInseriti;
+        prezzoBiglietto.innerHTML = (prezzoAlKm * kmInseriti).toFixed(2);
 
         if (select.value === "minorenne") {
-            prezzoBiglietto -= prezzoBiglietto * scontoMinorenni;
+            prezzoBiglietto.innerHTML = (prezzoBiglietto.innerHTML - prezzoBiglietto.innerHTML * scontoMinorenni).toFixed(2);
             console.log("prezzo biglietto minorenni: ", prezzoBiglietto);
 
         } 
         else if (select.value === "over") {
-            prezzoBiglietto -= prezzoBiglietto * scontoOver;
+            prezzoBiglietto.innerHTML = (prezzoBiglietto.innerHTML - prezzoBiglietto.innerHTML * scontoOver).toFixed(2);
             console.log("prezzo biglietto over 65: ", prezzoBiglietto);
 
         } 
         else {
-            prezzoBiglietto = prezzoBiglietto;
             console.log("prezzo biglietto non scontato: ", prezzoBiglietto);
 
         }
-        
+
+        prezzoBiglietto.innerHTML += "&euro;";
     }
+
+    
 
 );
 
