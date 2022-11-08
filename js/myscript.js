@@ -34,7 +34,13 @@ codiceCp.innerHTML = Math.floor(Math.random() * 99999) + 1;
 addButton.addEventListener("click", 
 
     function() {
-        biglietto.classList = "show";
+
+        if (inputName.value.length === 0 || inputKm.value.length === 0) {
+            alert("Ci sono campi vuoti");
+        }
+        else {
+            biglietto.classList = "show";
+        }
     
         const nomeInserito = inputName.value;
 
@@ -61,8 +67,7 @@ addButton.addEventListener("click",
 
         prezzoBiglietto.innerHTML += "&euro;";
     }
-
-    
+ 
 
 );
 
