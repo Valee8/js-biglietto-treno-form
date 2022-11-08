@@ -1,9 +1,13 @@
 #biglietto {
     display: none; 
-    background-color: red;
+    padding-top: 30px;
 }
 
-#biglietto.active {
+#biglietto.hidden {
+    display: none;
+}
+
+#biglietto.show {
     display: block;
 }
 
@@ -11,8 +15,9 @@
     display: flex;
     list-style-type: none;
     justify-content: space-between;
+    font-size: 13px;
 }
 
-.lista-info > li {
-    width: 20%;
+.lista-info > li:first-child {
+    width: 30%;
 }
