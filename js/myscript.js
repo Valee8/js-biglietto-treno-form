@@ -23,7 +23,7 @@ const carrozza = document.getElementById("numero-carrozza");
 const biglietto = document.getElementById("biglietto");
 
 // Variabile per il prezzo del biglietto
-let prezzoBiglietto = document.getElementById("prezzo");
+let prezzoBiglietto;
 
 // variabile per codice cp
 const codiceCp = document.getElementById("codice-cp");
@@ -36,12 +36,6 @@ const scontoMinorenni = 0.2;
 
 // Variabile che contiene lo sconto per gli over 65
 const scontoOver = 0.4;
-
-// carrozza contiene numero random tra 1 e 10
-carrozza.innerHTML = Math.floor(Math.random() * 10) + 1;
-
-// codiceCp contiene numero random tra 1 e 99999
-codiceCp.innerHTML = Math.floor(Math.random() * 99999) + 1;
 
 // Funzione per quando viene cliccato il bottone genera
 addButton.addEventListener("click", 
@@ -65,30 +59,33 @@ addButton.addEventListener("click",
 
         // Nome inserito dall'utente nell'input comparira' nell'html
         nome.innerHTML = nomeInserito;
+        
+        // carrozza contiene numero random tra 1 e 10
+        carrozza.innerHTML = Math.floor(Math.random() * 10) + 1;
 
-        // Prezzo del biglietto comparira' nell'html
-        prezzoBiglietto.innerHTML = (prezzoAlKm * kmInseriti).toFixed(2);
+        // codiceCp contiene numero random tra 1 e 99999
+        codiceCp.innerHTML = Math.floor(Math.random() * 99999) + 1;
+
+        // Calcolo prezzo del biglietto 
+        prezzoBiglietto = prezzoAlKm * kmInseriti;
 
         // Se l'utente seleziona minorenne applico lo sconto per i minorenni
         if (select.value === "minorenne") {
-            prezzoBiglietto.innerHTML = (prezzoBiglietto.innerHTML - prezzoBiglietto.innerHTML * scontoMinorenni).toFixed(2);
+            prezzoBiglietto -= prezzoBiglietto * scontoMinorenni;
             console.log("prezzo biglietto minorenni: ", prezzoBiglietto);
 
         } 
         // Se l'utente seleziona over applico lo sconto per gli over 65
         else if (select.value === "over") {
-            prezzoBiglietto.innerHTML = (prezzoBiglietto.innerHTML - prezzoBiglietto.innerHTML * scontoOver).toFixed(2);
+            prezzoBiglietto -= prezzoBiglietto * scontoOver;
             console.log("prezzo biglietto over 65: ", prezzoBiglietto);
 
         } 
-        // Altrimenti non applico nessuno sconto
-        else {
-            console.log("prezzo biglietto non scontato: ", prezzoBiglietto);
+        
+        console.log("prezzo biglietto non scontato: ", prezzoBiglietto);
 
-        }
-
-        // Faccio apparire il simbolo dell'euro dopo il prezzo
-        prezzoBiglietto.innerHTML += "&euro;";
+        // Stampo prezzo del biglietto
+        document.getElementById("prezzo").innerHTML = `${prezzoBiglietto.toFixed(2)}&euro;`;
     }
  
 
