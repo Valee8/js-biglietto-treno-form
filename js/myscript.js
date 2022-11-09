@@ -22,6 +22,7 @@ const carrozza = document.getElementById("numero-carrozza");
 // Variabile per il contenuto del biglietto
 const biglietto = document.getElementById("biglietto");
 
+// Variabile per il tipo di biglietto
 const tipoBiglietto = document.getElementById("tipo-biglietto");
 
 // Variabile per il prezzo del biglietto
@@ -74,19 +75,25 @@ addButton.addEventListener("click",
         // Se l'utente seleziona minorenne applico lo sconto per i minorenni
         if (select.value === "minorenne") {
             prezzoBiglietto -= prezzoBiglietto * scontoMinorenni;
+            // Stampo il tipo di biglietto
             tipoBiglietto.innerHTML = `Sconto del 20&percnt;`;
+            
             console.log("prezzo biglietto minorenni: ", prezzoBiglietto);
 
         } 
         // Se l'utente seleziona over applico lo sconto per gli over 65
         else if (select.value === "over") {
             prezzoBiglietto -= prezzoBiglietto * scontoOver;
+            // Stampo il tipo di biglietto
             tipoBiglietto.innerHTML = `Sconto del 40&percnt;`;
+
             console.log("prezzo biglietto over 65: ", prezzoBiglietto);
 
         } 
         else {
+            // Stampo il tipo di biglietto
             tipoBiglietto.innerHTML = `Biglietto Standard`;
+
             console.log("prezzo biglietto non scontato: ", prezzoBiglietto);
         }
 
