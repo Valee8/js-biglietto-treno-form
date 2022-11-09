@@ -1,6 +1,3 @@
-// Variabile per nome e cognome passeggero
-const nome = document.getElementById("nome-passeggero");
-
 // Variabile per contenuto input name
 const inputName = document.getElementById("name");
 
@@ -16,20 +13,11 @@ const cancelButton = document.getElementById("annulla");
 // Variabile per il select
 const select = document.getElementById("age");
 
-// Variabile per numero carrozza
-const carrozza = document.getElementById("numero-carrozza");
-
 // Variabile per il contenuto del biglietto
 const biglietto = document.getElementById("biglietto");
 
-// Variabile per il tipo di biglietto
-const tipoBiglietto = document.getElementById("tipo-biglietto");
-
 // Variabile per il prezzo del biglietto
 let prezzoBiglietto;
-
-// variabile per codice cp
-const codiceCp = document.getElementById("codice-cp");
 
 // Variabile che contiene il prezzo al chilometro
 const prezzoAlKm = 0.21;
@@ -61,13 +49,13 @@ addButton.addEventListener("click",
         const kmInseriti = inputKm.value;
 
         // Nome inserito dall'utente nell'input comparira' nell'html
-        nome.innerHTML = nomeInserito;
+        document.getElementById("nome-passeggero").innerHTML = nomeInserito;
         
         // carrozza contiene numero random tra 1 e 10
-        carrozza.innerHTML = Math.floor(Math.random() * 10) + 1;
+        document.getElementById("numero-carrozza").innerHTML = Math.floor(Math.random() * 10) + 1;
 
         // codiceCp contiene numero random tra 1 e 99999
-        codiceCp.innerHTML = Math.floor(Math.random() * 99999) + 1;
+        document.getElementById("codice-cp").innerHTML = Math.floor(Math.random() * 99999) + 1;
 
         // Calcolo prezzo del biglietto 
         prezzoBiglietto = prezzoAlKm * kmInseriti;
@@ -76,7 +64,7 @@ addButton.addEventListener("click",
         if (select.value === "minorenne") {
             prezzoBiglietto -= prezzoBiglietto * scontoMinorenni;
             // Stampo il tipo di biglietto
-            tipoBiglietto.innerHTML = `Sconto del 20&percnt;`;
+            document.getElementById("tipo-biglietto").innerHTML = `Sconto del 20&percnt;`;
             
             console.log("prezzo biglietto minorenni: ", prezzoBiglietto);
 
@@ -85,14 +73,14 @@ addButton.addEventListener("click",
         else if (select.value === "over") {
             prezzoBiglietto -= prezzoBiglietto * scontoOver;
             // Stampo il tipo di biglietto
-            tipoBiglietto.innerHTML = `Sconto del 40&percnt;`;
+            document.getElementById("tipo-biglietto").innerHTML = `Sconto del 40&percnt;`;
 
             console.log("prezzo biglietto over 65: ", prezzoBiglietto);
 
         } 
         else {
             // Stampo il tipo di biglietto
-            tipoBiglietto.innerHTML = `Biglietto Standard`;
+            document.getElementById("tipo-biglietto").innerHTML = `Biglietto Standard`;
 
             console.log("prezzo biglietto non scontato: ", prezzoBiglietto);
         }
@@ -100,7 +88,6 @@ addButton.addEventListener("click",
         // Stampo prezzo del biglietto
         document.getElementById("prezzo").innerHTML = `${prezzoBiglietto.toFixed(2)}&euro;`;
     }
- 
 
 );
 
