@@ -19,6 +19,9 @@ const biglietto = document.getElementById("biglietto");
 // Variabile per il prezzo del biglietto
 let prezzoBiglietto;
 
+// Variabile per lo sconto
+let sconto;
+
 // Variabile che contiene il prezzo al chilometro
 const prezzoAlKm = 0.21;
 
