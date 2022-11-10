@@ -44,15 +44,12 @@ addButton.addEventListener("click",
         else {
             biglietto.classList = "show";
         }
-    
-        // Variabile che contiene il valore di inputName
-        const nomeInserito = inputName.value;
 
         // Variabile che contiene il valore di inputKm
         const kmInseriti = inputKm.value;
 
-        // Nome inserito dall'utente nell'input comparira' nell'html
-        document.getElementById("nome-passeggero").innerHTML = nomeInserito;
+        // Nome e cognome inserito dall'utente apparirà sul nome del passeggero
+        document.getElementById("nome-passeggero").innerHTML = inputName.value;
         
         // carrozza contiene numero random tra 1 e 10
         document.getElementById("numero-carrozza").innerHTML = Math.floor(Math.random() * 10) + 1;
@@ -63,30 +60,34 @@ addButton.addEventListener("click",
         // Calcolo prezzo del biglietto 
         prezzoBiglietto = prezzoAlKm * kmInseriti;
 
+        // Imposto lo sconto a zero
+        sconto = 0;
+
         // Se l'utente seleziona minorenne applico lo sconto per i minorenni
         if (select.value === "minorenne") {
-            prezzoBiglietto -= prezzoBiglietto * scontoMinorenni;
+            // Assegno a sconto il valore di scontoMinorenni
+            sconto = scontoMinorenni;
+
             // Stampo il tipo di biglietto
-            document.getElementById("tipo-biglietto").innerHTML = `Sconto del 20&percnt;`;
-            
-            console.log("prezzo biglietto minorenni: ", prezzoBiglietto);
+            document.getElementById("tipo-biglietto").innerHTML = `Sconto del ${sconto*100}&percnt;`;
 
         } 
         // Se l'utente seleziona over applico lo sconto per gli over 65
         else if (select.value === "over") {
-            prezzoBiglietto -= prezzoBiglietto * scontoOver;
+            // Assegno a sconto il valore di scontoOver
+            sconto = scontoOver;
+
             // Stampo il tipo di biglietto
-            document.getElementById("tipo-biglietto").innerHTML = `Sconto del 40&percnt;`;
-
-            console.log("prezzo biglietto over 65: ", prezzoBiglietto);
-
+            document.getElementById("tipo-biglietto").innerHTML = `Sconto del ${sconto*100}&percnt;`;
         } 
         else {
             // Stampo il tipo di biglietto
-            document.getElementById("tipo-biglietto").innerHTML = `Biglietto Standard`;
-
-            console.log("prezzo biglietto non scontato: ", prezzoBiglietto);
+            document.getElementById("tipo-biglietto").innerHTML = `Biglietto standard`;
         }
+
+        prezzoBiglietto -= prezzoBiglietto * sconto;
+
+        console.log("Prezzo biglietto: ", prezzoBiglietto);
 
         // Stampo prezzo del biglietto
         document.getElementById("prezzo").innerHTML = `${prezzoBiglietto.toFixed(2)}&euro;`;
@@ -100,7 +101,6 @@ cancelButton.addEventListener("click",
     function() {
         // Faccio scomparire il contenuto del biglietto e aggiungo la classe hidden a #biglietto
         biglietto.className = "hidden";
-        
     }
 
 );
