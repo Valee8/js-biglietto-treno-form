@@ -67,22 +67,21 @@ addButton.addEventListener("click",
         if (select.value === "minorenne") {
             // Assegno a sconto il valore di scontoMinorenni
             sconto = scontoMinorenni;
-
-            // Stampo il tipo di biglietto
-            document.getElementById("tipo-biglietto").innerHTML = `Sconto del ${sconto*100}&percnt;`;
-
         } 
         // Se l'utente seleziona over applico lo sconto per gli over 65
         else if (select.value === "over") {
             // Assegno a sconto il valore di scontoOver
             sconto = scontoOver;
-
-            // Stampo il tipo di biglietto
-            document.getElementById("tipo-biglietto").innerHTML = `Sconto del ${sconto*100}&percnt;`;
         } 
-        else {
+
+        // Controllo se c'è lo sconto 
+        if (sconto === 0) {
             // Stampo il tipo di biglietto
             document.getElementById("tipo-biglietto").innerHTML = `Biglietto standard`;
+        }
+        else {
+            // Stampo il tipo di biglietto
+            document.getElementById("tipo-biglietto").innerHTML = `Sconto del ${sconto*100}&percnt;`;
         }
 
         prezzoBiglietto -= prezzoBiglietto * sconto;
